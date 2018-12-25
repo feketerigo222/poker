@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="poker.css">
+</head>
+
+<body>
+    <form name="form1">
+        <br>
+        <input type="button" name="startbutton" value="開始" onclick="start()">
+        <input type="button" name="drawbutton" value="手札を引く" onclick="first()">
+        <input type="button" name="changebutton" value="交換する" onclick="change()">
+        <input type="button" name="judgebutton" value="勝負する" onclick="judge()">
+    </form>
+
+    <div id="disp"> 
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="poker.js"></script>
+</body>
+
+</html>
