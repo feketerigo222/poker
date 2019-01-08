@@ -15,11 +15,12 @@
         <input type="button" name="startbutton" value="開始" onclick="start()">
         <input type="button" name="drawbutton" value="手札を引く" onclick="first()">
         <input type="button" name="changebutton" value="交換する" onclick="change()">
-        <input type="button" name="judgebutton" value="勝負する" onclick="judge()">
+        <input type="button" name="judgebutton" value="勝負する" onclick="rank_judge(my_hand, my_rank, my_rank_name)">
     </form>
 
     <div id="disp"> 
     </div>
+    <div id="rank_name"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="poker.js"></script>
 </body>
