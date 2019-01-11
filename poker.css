@@ -15,3 +15,28 @@ img{
   opacity: 0.5; /** 画像の透明度 */
     display: block;
 }
+
+#cpu_disp{
+    float: left;
+}
+
+#cpu_rank_name{
+    float: left
+}
+
+
+
+#disp{
+    clear: both;
+    float: left;
+}
+
+#rank_name{
+    float: left;
+}
+
+#result{
+    clear: both;
+    float: left;
+    font-size: 50px;
+}
