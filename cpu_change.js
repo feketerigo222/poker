@@ -210,7 +210,7 @@ twoPairSampling = (cpu_hand) => {
         cpu_hand.splice(0, 1);
         return cpu_hand;
     } else if (cpu_hand[0].num == cpu_hand[1].num && cpu_hand[3].num == cpu_hand[4].num) {
-        cpu_hand.spice(2, 1);
+        cpu_hand.splice(2, 1);
         return cpu_hand;
     } else if (cpu_hand[0].num == cpu_hand[1].num && cpu_hand[2].num == cpu_hand[3].num) {
         cpu_hand.splice(4, 1);
