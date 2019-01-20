@@ -259,7 +259,7 @@ jokerStairsMockJudge = (my_hand, joker_flg) => {
             return true;
         } else {
             changeAce(my_hand);
-            if (joker_stairsMock(my_hand)) {
+            if (jokerStairsMock(my_hand)) {
                 return true;
             } else {
                 return false;
