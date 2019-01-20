@@ -4,6 +4,7 @@ var my_rank = 11;
 var cpu_rank = 11;
 var my_rank_name;
 var cpu_rank_name;
+var difficultyNum = 0;
 
 
 //開始ボタン
@@ -12,6 +13,10 @@ start = () => {
     initCard(); //山札セット
     shuffleCard(); //山札シャッフル
     console.log(cards);
+    first();
+    $("#startbutton").hide();
+    $("#changebutton").show();
+    $("#judgebutton").show();
 }
 
 //手札を引くボタン
@@ -21,6 +26,11 @@ first = () => {
     console.log(cpu_hand);
     console.log(cards);
 }
+
+//難易度関連
+$('[name = difficulty]').change(function () {
+    difficultyNum = $('[name = difficulty] option:selected').val();
+})
 
 
 //カードを山札にセット
@@ -115,17 +125,23 @@ change = () => {
     console.log(cards);
     my_rank_name = rank(my_hand);
     $("#rank_name").text(my_rank_name);
+    $("#changebutton").hide();
 }
 
 //役判定＆表示
-rank = (my_hand,my_rank,my_rank_name) =>{
+rank = (my_hand, my_rank, my_rank_name) => {
     my_rank = rank_judge(my_hand);
-    my_rank_name = disp_rank(my_rank,my_rank_name);
+    my_rank_name = disp_rank(my_rank, my_rank_name);
     return my_rank_name;
 }
 
+
 //勝ち負け判定
-showdown = (my_rank, my_hand, cpu_rank, cpu_hand) =>{
+showdown = (my_rank, my_hand, cpu_rank, cpu_hand) => {
+    console.log(difficultyNum);
+    if(difficultyNum == 1){
+        cpu_hand = cpuChange(cpu_hand,cpu_rank);
+    };
     let imgurl = "";
     $("#cpu_disp img").remove();
     for (i = 0; i < cpu_hand.length; i++) {
@@ -133,15 +149,19 @@ showdown = (my_rank, my_hand, cpu_rank, cpu_hand) =>{
         // console.log(imgurl);
         $("#cpu_disp").append(`<img src=img/${imgurl}.png alt=card${i}>`);
     }
-    cpu_rank_name = rank(cpu_hand,cpu_rank,cpu_rank_name);
+    cpu_rank_name = rank(cpu_hand, cpu_rank, cpu_rank_name);
     $("#cpu_rank_name").text(cpu_rank_name);
     my_rank = rank_judge(my_hand);
     cpu_rank = rank_judge(cpu_hand);
-    if(my_rank < cpu_rank){
+    if (my_rank < cpu_rank) {
         $("#result").text("win");
-    }else if(my_rank > cpu_rank){
+    } else if (my_rank > cpu_rank) {
         $("#result").text("lose");
-    }else{
+    } else {
         $("#result").text("draw");
     };
+    $("#judgebutton").hide();
+    $("#changebutton").hide();
+    $("#difficulty").hide();
+    $("#onemorebutton").show();
 }
