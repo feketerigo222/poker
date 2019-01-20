@@ -40,3 +40,20 @@ img{
     float: left;
     font-size: 50px;
 }
+
+#startbuton{
+    display: block;
+}
+
+#changebutton{
+    display: none;
+}
+
+#judgebutton{
+    display: none;
+}
+
+#onemorebutton{
+    display: none;
+}
+
